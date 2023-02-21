@@ -34,3 +34,5 @@ const tmdbApi = {
   personMedias: async ({ personId }) =>
     axiosClient.get(tmdbEndpoints.personMedias({ personId })),
 };
+
+export default tmdbApi;

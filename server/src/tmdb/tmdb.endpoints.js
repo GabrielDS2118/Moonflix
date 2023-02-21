@@ -29,3 +29,5 @@ const tmdbEndpoints = {
   personMedias: ({ personId }) =>
     tmdbConfig.getUrl(`person/${personId}/combined_credits`),
 };
+
+export default tmdbEndpoints;
