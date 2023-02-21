@@ -10,7 +10,13 @@ const getList = async (req, res) => {
     const { page } = req.query;
     const { mediaType, mediaCategory } = req.params;
 
-    const response = await tmdbApi.mediaList(mediaType, mediaCategory);
+    const response = await tmdbApi.mediaList({
+      mediaType,
+      mediaCategory,
+      page,
+    });
+
+    return responseHandler.ok(res, response);
   } catch {
     responseHandler.error(res);
   }
