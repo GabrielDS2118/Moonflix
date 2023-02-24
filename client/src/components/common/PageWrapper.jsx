@@ -8,11 +8,9 @@ const PageWrapper = ({ state, children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(setAppState(state));
-  }, [state]);
+  }, [state, dispatch]);
 
-  return {
-    children,
-  };
+  return children;
 };
 
 export default PageWrapper;
