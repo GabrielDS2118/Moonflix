@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authModalSlice = createSlice({
   name: 'AuthModal',
   initialState: {
-    authModelOpen: false,
+    authModalOpen: false,
   },
 
   reducers: {
     setModalOpen: (state, action) => {
-      state.authModelOpen = action.payload;
+      state.authModalOpen = action.payload;
     },
   },
 });

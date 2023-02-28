@@ -57,11 +57,7 @@ router.post(
     .exists()
     .withMessage('Username is required')
     .isLength({ min: 8 })
-    .withMessage('Username must be minum 8 characters')
-    .custom(async (value) => {
-      const user = await userModel.findOne({ username: value });
-      if (user) return Promise.reject('Username already used');
-    }),
+    .withMessage('Username must be minum 8 characters'),
 
   body('password')
     .exists()

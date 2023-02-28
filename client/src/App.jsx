@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import themeConfigs from './configs/theme.config.js';
 
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';

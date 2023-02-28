@@ -50,6 +50,8 @@ const ScroolAppBar = ({ children, window }) => {
   });
 };
 const TopBar = () => {
+  const { authModalOpen } = useSelector((state) => state.authModel);
+  console.log('MODAL' + authModalOpen);
   const { user } = useSelector((state) => state.user);
   const { appState } = useSelector((state) => state.appState);
   console.log(appState);
