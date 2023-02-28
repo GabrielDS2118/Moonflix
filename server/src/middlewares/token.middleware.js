@@ -1,5 +1,5 @@
 import jsonwebtoken from 'jsonwebtoken';
-import responseHandler from '../handlers/request.handler.js';
+import responseHandler from '../handlers/response.handler.js';
 import useModel from '../models/user.model.js';
 
 const tokenDecode = (req) => {
@@ -22,7 +22,7 @@ const auth = async (req, res, next) => {
 
   const user = await useModel.findById(tokenDecoded.data);
 
-  if (!user) return responseHandler.unauthorize(res);
+  if (!user) return responseHandler.unauthorized(res);
 
   req.user = user;
 

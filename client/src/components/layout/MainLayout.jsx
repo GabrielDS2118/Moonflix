@@ -4,7 +4,39 @@ import Footer from '../common/Footer';
 import GlobalLoading from '../common/GlobalLoading';
 import TopBar from '../common/TopBar';
 import AuthModal from '../common/AuthModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import userApi from '../../api/modules/user.api';
+import favoriteApi from '../../api/modules/favorite.api';
+import { setListFavorities, setUser } from '../../redux/features/userSlice';
+
 const MainLayout = () => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    const authUser = async () => {
+      const { response, error } = await userApi.getInfo();
+      if (response) dispatch(setUser(response));
+      if (error) dispatch(setUser(null));
+    };
+
+    authUser();
+  }, [dispatch]);
+
+  useEffect(() => {
+    const getFavorities = async () => {
+      const { response, error } = await favoriteApi.getList();
+      if (response) dispatch(setListFavorities(response));
+      if (error) toast.error(error.message);
+    };
+
+    if (user) getFavorities();
+    if (!user) dispatch(setListFavorities([]));
+  }, [user, dispatch]);
+
   return (
     <>
       {/*global loading*/}
