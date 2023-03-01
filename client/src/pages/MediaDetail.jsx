@@ -22,8 +22,8 @@ import { setGlobalLoading } from '../redux/features/globalLoadingSlice';
 import { setModalOpen } from '../redux/features/authModalSlice';
 import { addFavorite, removeFavorite } from '../redux/features/userSlice';
 
-// import CastSlide from '../components/common/CastSlide';
-// import MediaVideosSlide from '../components/common/MediaVideosSlide';
+import MediaVideosSlide from '../components/common/MediaVideosSlide';
+import CastSlide from '../components/common/CastSlide';
 // import BackdropSlide from '../components/common/BackdropSlide';
 // import PosterSlide from '../components/common/PosterSlide';
 // import RecommendSlide from '../components/common/RecommendSlide';
@@ -249,9 +249,9 @@ const MediaDetail = () => {
                 {/* buttons */}
 
                 {/* cast */}
-                {/* <Container header="Cast">
+                <Container header="Cast">
                   <CastSlide casts={media.credits.cast} />
-                </Container> */}
+                </Container>
                 {/* cast */}
               </Stack>
             </Box>
@@ -261,11 +261,11 @@ const MediaDetail = () => {
         {/* media content */}
 
         {/* media videos */}
-        {/* <div ref={videoRef} style={{ paddingTop: '2rem' }}>
+        <div ref={videoRef} style={{ paddingTop: '2rem' }}>
           <Container header="Videos">
             <MediaVideosSlide videos={[...media.videos.results].splice(0, 5)} />
           </Container>
-        </div> */}
+        </div>
         {/* media videos */}
 
         {/* media backdrop */}
