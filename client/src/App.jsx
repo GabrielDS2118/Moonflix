@@ -5,6 +5,9 @@ import themeConfigs from './configs/theme.config.js';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
