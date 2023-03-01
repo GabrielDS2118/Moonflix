@@ -25,7 +25,7 @@ import { addFavorite, removeFavorite } from '../redux/features/userSlice';
 import MediaVideosSlide from '../components/common/MediaVideosSlide';
 import CastSlide from '../components/common/CastSlide';
 import BackdropSlide from '../components/common/BackdropSlide';
-// import PosterSlide from '../components/common/PosterSlide';
+import PosterSlide from '../components/common/PosterSlide';
 // import RecommendSlide from '../components/common/RecommendSlide';
 // import MediaSlide from '../components/common/MediaSlide';
 // import MediaReview from '../components/common/MediaReview';
@@ -277,11 +277,11 @@ const MediaDetail = () => {
         {/* media backdrop */}
 
         {/* media posters */}
-        {/* {media.images.posters.length > 0 && (
+        {media.images.posters.length > 0 && (
           <Container header="posters">
             <PosterSlide posters={media.images.posters} />
           </Container>
-        )} */}
+        )}
         {/* media posters */}
 
         {/* media reviews */}
