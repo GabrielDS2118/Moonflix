@@ -72,7 +72,9 @@ const signIn = async (req, res) => {
 const updatePassword = async (req, res) => {
   try {
     const { password, newPassword } = req.body;
-    const user = userModel.findById(req.user.id).select('password id salt');
+    const user = await userModel
+      .findById(req.user.id)
+      .select('password id salt');
 
     if (!user) return responseHandler.unauthorized(res);
     if (!user.validPassword(password))
@@ -83,7 +85,8 @@ const updatePassword = async (req, res) => {
     await user.save();
 
     responseHandler.ok(res);
-  } catch {
+  } catch (error) {
+    console.log(error);
     responseHandler.error(res);
   }
 };

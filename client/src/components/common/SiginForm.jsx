@@ -46,7 +46,7 @@ const SigninForm = ({ switchAuthState }) => {
 
       if (error) {
         console.log(error);
-        setErrorMessage(error);
+        setErrorMessage(error.message);
       }
     },
   });

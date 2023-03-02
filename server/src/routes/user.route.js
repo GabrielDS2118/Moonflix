@@ -84,18 +84,19 @@ router.put(
     .isLength({ min: 8 })
     .withMessage('newPassword minium 8 characters'),
 
-  body('confirmPassword')
+  body('confirmNewPassword')
     .exists()
-    .withMessage('confirmPassword is required')
+    .withMessage('confirmNewPassword is required')
     .isLength({ min: 8 })
     .withMessage('confirmNewPassword minium 8 characters')
     .custom((value, { req }) => {
-      if (value != req.body.newpassword)
-        throw new Error('ConfirmPassword not match');
+      if (value != req.body.newPassword)
+        throw new Error('ConfirmNewPassword not match');
       return true;
     }),
 
   requestHandler.validate,
+  tokenMiddleware.auth,
   userController.updatePassword
 );
 
