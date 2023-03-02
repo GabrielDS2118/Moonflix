@@ -26,8 +26,8 @@ import MediaVideosSlide from '../components/common/MediaVideosSlide';
 import CastSlide from '../components/common/CastSlide';
 import BackdropSlide from '../components/common/BackdropSlide';
 import PosterSlide from '../components/common/PosterSlide';
-// import RecommendSlide from '../components/common/RecommendSlide';
-// import MediaSlide from '../components/common/MediaSlide';
+import RecommendSlide from '../components/common/RecommendSlide';
+import MediaSlide from '../components/common/MediaSlide';
 
 import MediaReview from '../components/common/MediaReview';
 
@@ -300,7 +300,7 @@ const MediaDetail = () => {
         {/* media reviews */}
 
         {/* media recommendation */}
-        {/* <Container header="you may also like">
+        <Container header="you may also like">
           {media.recommend.length > 0 && (
             <RecommendSlide medias={media.recommend} mediaType={mediaType} />
           )}
@@ -310,7 +310,7 @@ const MediaDetail = () => {
               mediaCategory={tmdbConfigs.mediaCategory.top_rated}
             />
           )}
-        </Container> */}
+        </Container>
         {/* media recommendation */}
       </Box>
     </>
