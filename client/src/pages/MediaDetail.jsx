@@ -57,6 +57,7 @@ const MediaDetail = () => {
 
       if (response) {
         setMedia(response);
+        console.log(response);
         setIsFavorite(response.isFavorite);
         setGenres(response.genres.splice(0, 2));
       }
@@ -88,6 +89,7 @@ const MediaDetail = () => {
     };
 
     const { response, err } = await favoriteApi.add(body);
+    console.log(response);
 
     setOnRequest(false);
 
@@ -107,14 +109,18 @@ const MediaDetail = () => {
       (e) => e.mediaId.toString() === media.id.toString()
     );
 
-    const { response, err } = await favoriteApi.remove({
+    const { response, err } = await favoriteApi.delete({
       favoriteId: favorite.id,
     });
+
+    console.log(response);
+    console.log(err);
 
     setOnRequest(false);
 
     if (err) toast.error(err.message);
     if (response) {
+      console.log(response);
       dispatch(removeFavorite(favorite));
       setIsFavorite(false);
       toast.success('Remove favorite success');

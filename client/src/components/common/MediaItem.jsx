@@ -12,6 +12,7 @@ import favoriteUtils from '../../utils/favorite.utils';
 
 const MediaItem = ({ media, mediaType }) => {
   const { listFavorites } = useSelector((state) => state.user);
+  console.log('Favoritos' + listFavorites);
 
   const [title, setTitle] = useState('');
   const [posterPath, setPosterPath] = useState('');

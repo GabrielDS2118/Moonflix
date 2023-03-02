@@ -30,6 +30,8 @@ const removeFavorite = async (req, res) => {
       _id: favoriteId,
     });
 
+    console.log('Favorito encontrado: ' + favorite);
+
     if (!favorite) return responseHandler.notfound(res);
     await favorite.remove();
 

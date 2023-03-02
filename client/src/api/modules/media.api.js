@@ -1,4 +1,5 @@
 import publicClient from '../client/public.client.js';
+import privateClient from '../client/private.client';
 
 const mediaEndpoints = {
   list: ({ mediaType, mediaCategory, page }) =>
@@ -24,7 +25,7 @@ const mediaApi = {
 
   getDetail: async ({ mediaType, mediaId }) => {
     try {
-      const response = await publicClient.get(
+      const response = await privateClient.get(
         mediaEndpoints.detail({ mediaType, mediaId })
       );
       return { response };

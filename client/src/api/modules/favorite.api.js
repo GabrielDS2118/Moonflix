@@ -25,6 +25,7 @@ const favoriteApi = {
         mediaPoster,
         mediaRate,
       });
+
       return { response };
     } catch (error) {
       return { error };
@@ -33,10 +34,10 @@ const favoriteApi = {
 
   delete: async ({ favoriteId }) => {
     try {
-      const response = privateClient.delete(
+      const response = await privateClient.delete(
         favoriteEndpoints.remove({ favoriteId })
       );
-      return response;
+      return { response };
     } catch (error) {
       return { error };
     }

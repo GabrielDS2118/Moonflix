@@ -67,8 +67,10 @@ const getDetail = async (req, res) => {
 
     media.images = await tmdbApi.mediaImages(params);
     const tokenDecoded = tokenMiddleware.tokenDecode(req);
+    console.log('TK' + tokenDecoded);
 
     if (tokenDecoded) {
+      console.log('Favoritooo');
       const user = await userModel.findById(tokenDecoded.data);
       if (user) {
         const isFavorite = await favoriteModel.findOne({
