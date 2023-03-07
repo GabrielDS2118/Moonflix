@@ -11,7 +11,8 @@ let timer;
 const timeout = 500;
 
 const MediaSearch = () => {
-  const [query, setQuery] = useState('');
+  const sc = localStorage.getItem('qr') ? localStorage.getItem('qr') : '';
+  const [query, setQuery] = useState(sc);
   const [onSearch, setOnSearch] = useState(false);
   const [mediaType, setMediaType] = useState(mediaTypes[0]);
   const [medias, setMedias] = useState([]);
@@ -37,6 +38,7 @@ const MediaSearch = () => {
 
   useEffect(() => {
     if (query.trim().length === 0) {
+      localStorage.removeItem('qr');
       setMedias([]);
       setPage(1);
     } else search();
@@ -51,6 +53,7 @@ const MediaSearch = () => {
 
   const onQueryChange = (e) => {
     const newQuery = e.target.value;
+    localStorage.setItem('qr', newQuery);
     clearTimeout(timer);
 
     timer = setTimeout(() => {
@@ -92,6 +95,7 @@ const MediaSearch = () => {
             sx={{ width: '100%' }}
             autoFocus
             onChange={onQueryChange}
+            value={localStorage.getItem('qr') ? localStorage.getItem('qr') : ''}
           />
 
           <MediaGrid medias={medias} mediaType={mediaType} />
